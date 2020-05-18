@@ -31,7 +31,9 @@ public class formawal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,7 +43,7 @@ public class formawal extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Selamat datang diaplikasi pendataan penduduk");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 80, 330, 40);
+        jLabel2.setBounds(110, 50, 330, 40);
 
         jButton1.setText("Login sebagai Admin");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +52,7 @@ public class formawal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(120, 140, 150, 30);
+        jButton1.setBounds(200, 120, 150, 30);
 
         jButton2.setText("Input Data Penduduk");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -59,18 +61,30 @@ public class formawal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(120, 200, 150, 30);
+        jButton2.setBounds(200, 190, 150, 30);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Pictures\\268445_wallpaper-polos-keren.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frame/keluar.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(470, 10, 30, 30);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frame/guiback.jpeg"))); // NOI18N
         jLabel5.setText("jLabel5");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 0, 400, 300);
+        jLabel5.setBounds(0, 0, 510, 300);
+
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(410, 0, 100, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,8 +101,12 @@ public class formawal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-        new FormInput().setVisible(true);
+        new forminput().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,6 +146,8 @@ public class formawal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

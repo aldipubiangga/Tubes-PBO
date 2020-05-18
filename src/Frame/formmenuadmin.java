@@ -4,13 +4,18 @@
  * and open the template in the editor.
  */
 package Frame;
-
+    import java.sql.Connection;
+    import java.sql.DriverManager;
+    import java.sql.ResultSet;
+    import java.sql.Statement;
+    import javax.swing.JOptionPane;
 /**
  *
  * @author ACER
  */
 public class formmenuadmin extends javax.swing.JFrame {
-
+    Connection connect =null;
+    Statement state = null;
     /**
      * Creates new form formmenuadmin
      */
@@ -28,22 +33,60 @@ public class formmenuadmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtcaridata = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Pictures\\268445_wallpaper-polos-keren.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frame/keluar.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(470, 10, 30, 30);
+
+        txtcaridata.setBackground(new java.awt.Color(0, 102, 255));
+        txtcaridata.setForeground(new java.awt.Color(0, 0, 153));
+        txtcaridata.setText("Edit data");
+        txtcaridata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcaridataActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtcaridata);
+        txtcaridata.setBounds(190, 80, 150, 60);
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 204));
+        jButton2.setForeground(new java.awt.Color(0, 51, 153));
+        jButton2.setText("Kembali");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(190, 180, 150, 50);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frame/guiback.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 400, 300);
+        jLabel2.setBounds(0, 0, 510, 300);
+
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(470, 10, 30, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,6 +95,20 @@ public class formmenuadmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtcaridataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcaridataActionPerformed
+        this.setVisible(false);
+        new caridata().setVisible(true);
+    }//GEN-LAST:event_txtcaridataActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+        new formlogin().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,7 +146,11 @@ public class formmenuadmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton txtcaridata;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package Frame;
+    import java.awt.HeadlessException;
     import java.sql.Connection;
     import java.sql.DriverManager;
-import java.sql.ResultSet;
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
     import java.sql.Statement;
     import javax.swing.JOptionPane;
 /**
@@ -21,17 +23,6 @@ public class formlogin extends javax.swing.JFrame {
      */
     public formlogin() {
         initComponents();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        connect=DriverManager.getConnection("jdbc:mysql://localhost/datapenduduk","root","");
-        state=connect.createStatement();
-        JOptionPane.showMessageDialog(null, "database terhubung");
-    }
-        catch(Exception ex){
-          JOptionPane.showMessageDialog(null,"database gagal diakses karna " + ex);
-}
-
-        
     }
 
     private void HapusLayar(){
@@ -47,6 +38,7 @@ public class formlogin extends javax.swing.JFrame {
         txtusername.requestFocus();
         HapusLayar();
     }else{
+        connect = DriverManager.getConnection("jdbc:mysql://localhost/datapenduduk","root","");
         state = connect.createStatement();
         String sql = ("SELECT * FROM admin WHERE username = '"+txtusername.getText()+"' AND pass = '"+String.valueOf(txtpass.getPassword())+"'");
         ResultSet rs = state.executeQuery(sql);
@@ -58,8 +50,8 @@ public class formlogin extends javax.swing.JFrame {
         HapusLayar();
       }
     }
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(HeadlessException | SQLException e){
+            
         }
 }
     /**
@@ -79,7 +71,9 @@ public class formlogin extends javax.swing.JFrame {
         txtpass = new javax.swing.JPasswordField();
         txtback = new javax.swing.JButton();
         txtlogin = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Pictures\\coffee-icon.png")); // NOI18N
         jLabel4.setText("jLabel4");
@@ -128,10 +122,21 @@ public class formlogin extends javax.swing.JFrame {
         jPanel1.add(txtlogin);
         txtlogin.setBounds(273, 190, 90, 23);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Pictures\\268445_wallpaper-polos-keren.jpg")); // NOI18N
-        jLabel3.setText("jLabel3");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frame/keluar.png"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(470, 0, 30, 40);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frame/guiback.jpeg"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, 0, 520, 310);
+        jLabel3.setBounds(0, 0, 510, 310);
+
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(470, 0, 30, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,6 +167,10 @@ public class formlogin extends javax.swing.JFrame {
         new formawal().setVisible(true);
     }//GEN-LAST:event_txtbackActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -191,6 +200,7 @@ public class formlogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new formlogin().setVisible(true);
 }
@@ -199,10 +209,12 @@ public class formlogin extends javax.swing.JFrame {
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton txtback;
     private javax.swing.JButton txtlogin;
